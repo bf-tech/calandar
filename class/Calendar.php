@@ -23,25 +23,26 @@ class Calendar {
 	}
 
 	public function gregorianDate() {
-	//	return date('l d F Y L',strtotime($this->gregorianDate));
-		return $this->gregorianDate->format('l d F Y L');
+		return date('l d F Y L',strtotime($this->gregorianDate));
+	//	return $this->gregorianDate->format('l d F Y L');
 	}
 
 	public function gregorianDays() {
 
 		$firstMoharram = new DateTime('622-7-16');
 		$givenDate = new DateTime($this->gregorianDate);
-		$thursdayOctobre = new DateTime('1582-10-4');
+		$fridayOctobre = new DateTime('1582-10-15');
 
-		if ($givenDate <= $thursdayOctobre) {
+
+		if ($givenDate > $fridayOctobre) {
 
 			return $this->gregorianDays = $firstMoharram->diff($givenDate)->days;
 
 		} else {
 
-			$fridayOctobre = new DateTime('1582-10-15');
-		
-			return $this->gregorianDays = $firstMoharram->diff($thursdayOctobre)->days + $fridayOctobre->diff($givenDate)->days; //same as having total minus 10 days
+			$thursdayOctobre = new DateTime('1582-10-4');
+
+			return $this->gregorianDays = $firstMoharram->diff($givenDate)->days - $thursdayOctobre->diff($fridayOctobre)->days;
 		}
 	}
 

@@ -8,39 +8,30 @@
 
 <?php
 
+include_once('helper/autoload.php');
+
+$Hijri = new Hijri;
+
 if (isset($_GET['year'])) {
 
-	include_once('helper/autoload.php');
+	echo $Hijri->gregorianDays().' days from 1 Moharram year I Hijri til today<br/><br/>';
 
-	$Greg = new Gregorian;
-
-	echo $Greg->gregorianDays().' days from 1 Moharram year I Hijri til today<br/><br/>';
-
-
-	echo $Greg->setGivenDate($_GET['day'], $_GET['month'], $_GET['year']).' Given Date<br/>';
-
-	echo $Greg->gregorianDate().'<br/>';
-
-	echo $Greg->gregorianDays().' days from 1 Moharram I Hijri til the Given Date<br/>';
-
-} else {
-
-	include_once('helper/autoload.php');
-
-	$Hijri = new Hijri;
-
-	echo $Hijri->gregorianDays().'<br/>';
-
-	echo $Hijri->totalMonths().'<br/>';
-
-	echo $Hijri->yearRank().'<br/>';
-
-	echo $Hijri->hijriYear().'<br/>';
-
-	echo $Hijri->hijriMonth().'<br/>';
-
-	var_dump($Hijri->isLeapYear());
+	echo $Hijri->setGivenDate($_GET['day'], $_GET['month'], $_GET['year']).' Given Date<br/>';
 
 }
+
+	echo $Hijri->gregorianDate().'<br/>';
+
+	echo 'Gregorian Days: '.$Hijri->gregorianDays().'<br/>';
+
+	echo 'total months: '.$Hijri->totalMonths().'<br/>';
+
+	echo 'year Rank: '.$Hijri->yearRank().'<br/>';
+
+	echo 'hijri date: '.$Hijri->hijriDate().'<br/>';
+
+	echo 'hijri Day: '.$Hijri->hijriDay.'<br/>';
+	echo 'hijri Month: '.$Hijri->hijriMonth.'<br/>';
+	echo 'hijri Year: '.$Hijri->hijriYear.'<br/>';
 
 ?>
