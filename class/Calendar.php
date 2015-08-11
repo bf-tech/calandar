@@ -10,7 +10,7 @@ class Calendar {
 
 	function __construct() {
 		date_default_timezone_set('America/New_York');
-		echo 'Calendar Class constructed at '.date("H:i:s").'<br/>';
+//		echo 'Calendar Class constructed at '.date("H:i:s").'<br/>';
 
 		/*
 			Initiate the gregorianDate to the current date in case none is provided.
