@@ -5,44 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Calendar Conversion</title>
+    <title>Hijri Calendar Conversion</title>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="datepicker/css/bootstrap-datepicker3.min.css">
 
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="datepicker/js/bootstrap-datepicker.min.js"></script>
 	</head>
 	<body>
 		<div class="container-fluid"><div class="row"><div class="col-md-4 col-md-offset-4">
-		<form class="form-inline" method="get" action="<?php $_SERVER['PHP_SELF'] ?>">
-			<div class="form-group">
-			<input class="form-control" id ="d" type="number" name="d" min="1" max="31" placeholder="31">
-
-			<input class="form-control" id ="m" type="number" name="m" min="1" max="12" placeholder="12">
-
-			<input class="form-control" id ="y" type="number" name="y" min="622" max="2500" placeholder="2015">
-
-			<select class="form-control" name="date">
-				<option value="gregorian">Gregorian to Hijri</option>
-		<!--			<option value="hijir">Hijri to Gregorian</option>
-		-->
-			</select>
+    <p> </p>
+    <div class="panel panel-default">
+    <div class="panel-body">
+    <form class="form-inline text-center" method="get" action="<?php $_SERVER['PHP_SELF'] ?>">
 			<input type="hidden" name="interface" value="true">
-			<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></button>
-			</div>
+      <div class="input-group">
+        <input id="picker" name="input" type="text" class="form-control" placeholder="dd-mm-yyyy">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Go!</button>
+        </span>
+      </div><!-- /input-group -->
 		</form>
+    <p> </p>
+    <p><?php echo $H->getDate();?> Concords with:</p>
+    <p>Day <?php echo $H->hijriDay;?></p>
+    <p>of Month <?php echo $H->hijriMonth;?> - <small>month name soon here</small></p>
+    <p>of Year <?php echo $H->hijriYear;?> Hijri</p>
 
-		<?php if (isset($_GET['date'])) {
-			echo "chosen day ".$H->hijriDate();
-		} else {
-			echo "today ".$H->hijriDate();
-		}?>
+    </div>
+      <div class="panel-footer text-right"><small>www.bftech.info</small></div>
+    </div>
+	 </div></div></div>
 
-	</div></div></div>
+  <script type="text/javascript">
+    $('#picker').datepicker({
+      format: "dd-mm-yyyy",
+      startDate: "16/07/622",
+      startView: 2,
+      todayBtn: "linked",
+      autoclose: true
+    });
+  </script>
+
 	</body>
 </html>
