@@ -10,12 +10,12 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+		<link rel="stylesheet" href="bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css">
 
 		<!-- Latest compiled and minified JavaScript -->
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 	</head>
 	<body>
 		<div class="container-fluid"><div class="row"><div class="col-md-4 col-md-offset-4">
