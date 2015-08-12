@@ -10,6 +10,7 @@ class Hijri {
 	public $hijriYear = 0;
 	public $hijriMonth = 0;
 	public $hijriDay = 0;
+	public $hijriMonthName = '';
 	public $cycleDays = 0;
 	public $cycles = 0;
 	public $gregorianDays = 0;
@@ -36,7 +37,6 @@ class Hijri {
 
 	public function getDate() {
 		return date('l d F Y',strtotime($this->gregorianDate));
-//		return $this->gregorianDate->format('l d F Y');
 	}
 
 	private function gregorianDays() {
@@ -57,6 +57,11 @@ class Hijri {
 	public function isLeapYear($year) {
 		$leapYears = [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29];
 		return (in_array($year, $leapYears)) ? true : false ;
+	}
+
+	public function hijriMonthName() {
+		$name = [1 => "Mouharrem", 2 => "Safar", 3 => "Rabie Al-Awwal", 4 =>  "Rabie Al-Âkher", 5 => "Joumada I", 6 => "Joumada II", 7 =>  "Rajab", 8 => "Chabân", 9 => "Ramadân", 10 => "Chawwâl", 11 => "Dhoul-Qida", 12 => "Dhoul-Hijja"];
+		return $this->hijriMonthName = $name[$this->hijriMonth];
 	}
 
 	private function cycleDays() {
@@ -110,6 +115,6 @@ class Hijri {
 		$this->hijriMonth = $m;
 		$this->hijriDay = $d;
 
-		return $d.' '.$m.' '.($y + $this->cycles * 30);
+		return $d.' '.$this->hijriMonthName().' '.($y + $this->cycles * 30);
 	}
 }

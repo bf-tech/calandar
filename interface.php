@@ -10,12 +10,12 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="datepicker/css/bootstrap-datepicker3.min.css">
+		<link rel="stylesheet" href="bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 
 		<!-- Latest compiled and minified JavaScript -->
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 	</head>
 	<body>
 		<div class="container-fluid"><div class="row"><div class="col-md-4 col-md-offset-4">
@@ -32,10 +32,10 @@
       </div><!-- /input-group -->
 		</form>
     <p> </p>
-    <p><?php echo $H->getDate();?> Concords with:</p>
-    <p>Day <?php echo $H->hijriDay;?></p>
-    <p>of Month <?php echo $H->hijriMonth;?> - <small>month name soon here</small></p>
-    <p>of Year <?php echo $H->hijriYear;?> Hijri</p>
+    <p><u><?php echo $H->getDate();?></u> Concords with:</p>
+    <p>Day <b><?php echo $H->hijriDay;?></b></p>
+    <p><b><?php echo $H->hijriMonthName;?></b> <small>(month number - <?php echo $H->hijriMonth;?>)</small></p>
+    <p>Year <b><?php echo $H->hijriYear;?></b> Hijri</p>
 
     </div>
       <div class="panel-footer text-right"><small>www.bftech.info</small></div>
