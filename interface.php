@@ -38,7 +38,7 @@
     <p>Year <b><?php echo $H->hijriYear;?></b> Hijri</p>
 
     </div>
-      <div class="panel-footer text-right"><small>www.bftech.info</small></div>
+      <div class="panel-footer text-right"><small><a href="https://github.com/bf-tech/calendar">github.com/bf-tech/calendar</a> - <a href="http://www.bftech.info/">bftech.info</a></small></div>
     </div>
 	 </div></div></div>
 
