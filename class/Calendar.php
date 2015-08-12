@@ -5,29 +5,28 @@
  */
 class Calendar {
 
-	public $gregorianDate = '';
-	public $gregorianDays = 0;
+	protected $gregorianDays = 0;
+	protected $gregorianDate = '';
 
 	function __construct() {
 		date_default_timezone_set('America/New_York');
-//		echo 'Calendar Class constructed at '.date("H:i:s").'<br/>';
-
-		/*
-			Initiate the gregorianDate to the current date in case none is provided.
-		*/
-		$this->gregorianDate = date('Y-m-d');
+		echo 'Calendar Class constructed at '.date("H:i:s").'<br/>';
 	}
 
-	public function setGivenDate($d, $m, $y) {
+	public function result() {
+    var_dump(get_object_vars($this));
+  }
+
+	public function setDate($d, $m, $y) {
 		return $this->gregorianDate = date('Y-m-d', mktime(0, 0, 0, $m, $d, $y));
 	}
 
-	public function gregorianDate() {
+	public function getDate() {
 		return date('l d F Y L',strtotime($this->gregorianDate));
 	//	return $this->gregorianDate->format('l d F Y L');
 	}
 
-	public function gregorianDays() {
+	protected function gregorianDays() {
 
 		$firstMoharram = new DateTime('622-7-16');
 		$givenDate = new DateTime($this->gregorianDate);

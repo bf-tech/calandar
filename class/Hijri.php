@@ -2,33 +2,39 @@
 
 class Hijri extends Calendar {
 
-	public $totalMonths = 0;
 	public $hijriYear = 0;
 	public $hijriMonth = 0;
 	public $hijriDay = 0;
-	public $yearRank = 0;
+	public $totalMonths = 0;
 	public $cycles = 0;
+	public $yearRank = 0;
 
-	function isLeapYear($year) {
+	function __construct() {
+		date_default_timezone_set('America/New_York');
+		/*
+		Initiate the gregorianDate to the current date in case none is provided.
+		*/
+		$this->gregorianDate = date('Y-m-d');
+		$this->gregorianDays();
+		$this->totalMonths();
+		$this->yearRank();
+	}
+
+	public function isLeapYear($year) {
 		$leapYears = [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29];
 
 		return (in_array($year, $leapYears)) ? true : false ;
 	}
 
-	function totalMonths() {
+	private function totalMonths() {
 		return $this->totalMonths = ($this->gregorianDays/29.53058868);
 	}
 
-	function yearRank() {
+	private function yearRank() {
 		return $this->yearRank = ($this->totalMonths / 12) % 30;
 	}
 
-	function hijriYear() {
-		$this->cycles = floor(($this->totalMonths / 12) / 30);
-		return $this->hijriYear = $this->yearRank + ($this->cycles * 30) + 1;
-	}
-
-	function hijriDate() {
+	public function hijriDate() {
 		$this->cycles = floor(($this->totalMonths / 12) / 30);
 		$cycleMonths = $this->totalMonths - ($this->cycles * 30 * 12);
 		$cycleDays = $cycleMonths * 29.53058868;
