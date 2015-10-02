@@ -5,9 +5,9 @@ Tools allowing calendar conversions and taking into consideration all known hist
 
 * From your root folder, follow these steps:
 
-`git clone https://github.com/bf-tech/calendar.git`
-`cd calendar`
-`git clone https://github.com/eternicode/bootstrap-datepicker.git`
+1 `git clone https://github.com/bf-tech/calendar.git`
+2 `cd calendar`
+3 `git clone https://github.com/eternicode/bootstrap-datepicker.git`
 
 # source and credits #
 
